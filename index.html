@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz Design Web</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        label {
+            width: 100px;
+        }
+
+        .wrapper {
+            border: 1px solid black;
+            margin: 30px;
+            float: left;
+            width: 20%;
+            height: 400px;
+            padding: 50px 10px 10px 10px;
+        }
+
+        .wrapper .img-rounded {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        h2.text-center {
+            margin-top: 50px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2>Rental VCD</h2>
+        <h4>Input data Harga Sewa perKategori</h4> <br />
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="">Judul</label>
+                :
+                <input type="text" id="judul" autocomplete="off" required="required">
+            </div>
+            <div class="form-group">
+                <label for="">Kategori</label>
+                :
+                <select name="" id="kategori">
+                    <option value="null">Pilih Kategori</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Musical">Musical</option>
+                    <option value="Horor">Horor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Harga</label>
+                :
+                <input type="number" id="harga" required="required">
+            </div>
+            <div>
+                <button type="button" onclick="myFunction()">Simpan</button>
+            </div>
+        </form>
+        <div class="content" id="content">
+            <!-- <div class="wrapper" class="text-center">
+                <img src="images/horor.jpg" width="200" height="200" class="img-rounded">
+                <h2 class="text-center">Lorem</h2>
+                <p class="text-center">Rp. 30000 / 3 hari</p>
+            </div> -->
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <script>
+        function myFunction() {
+            var judul = document.getElementById("judul").value;
+            if (judul.length == 0) {
+                alert("Please input your title !");
+            }
+
+            var kategori = document.getElementById("kategori").value;
+            var imageSrc = '';
+            if (kategori == "Adventure") {
+                imageSrc = 'images/adventure.jpg';
+            } else if (kategori == "Drama") {
+                imageSrc = 'images/drama.jpg';
+            } else if (kategori == "Animation") {
+                imageSrc = 'images/animation.jpg';
+            } else if (kategori == "Musical") {
+                imageSrc = 'images/musical.jpg';
+            } else if (kategori == "Horor") {
+                imageSrc = 'images/horor.jpg';
+            }
+
+            var harga = document.getElementById("harga").value;
+
+            var wrapper =
+                "<div class='wrapper' class='text-center'><img src='" + imageSrc +
+                "' width='200' height='200' class='img-rounded'><h2 class='text-center'>" +
+                judul + "</h2><p class='text-center'> Rp. " +
+                harga + " / 3 hari</p></div>";
+            var content = document.getElementById("content");
+            content.insertAdjacentHTML("beforeend", wrapper);
+        }
+    </script>
+</body>
+
+</html>
